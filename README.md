@@ -1,7 +1,7 @@
 <!-- README da CledianeAlencar -->
 
 <div align="center">
-  <img src="./ChatGPT Image 11 de abr. de 2025, 11_21_32.png alt="Clediane programando em JavaScript" width="400" />
+  <img src="./src/ChatGPT Image 11 de abr. de 2025, 11_21_32.png alt="Clediane programando em JavaScript" width="400" />
 
   <br><br>
 
