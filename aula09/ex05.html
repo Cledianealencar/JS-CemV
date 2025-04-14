@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>primeiros passos com o DOM</title>
+</head>
+
+<style>
+    body{
+        background-color: pink;
+        color: white;
+    }
+</style>
+
+<body>
+    <h1>iniciando estudos com o DOM</h1>
+    <p>primeiros passos com o DOM</p>
+    <p> aprendendo a usar o <strong>DOM</strong> no javascript</p>
+    <div id="msg">clique em mim</div>
+    <div class="testando">TESTANDO O QUERYSELECTOR</div>
+
+
+
+    <script>
+        var corpo = window.document.body
+        var p = window.document.getElementsByTagName('p')[1]
+        var id = window.document.getElementById('msg')
+        var query = window.document.querySelector('div.testando')
+        corpo.style.background= 'black'
+        p.style.color= 'blue'
+
+        document.write(p.innerText)
+        document.write(p.innerHTML)
+
+        id.innerText = ('olá Diane')
+
+        query.style.background = 'red'
+    </script>
+</body>
+</html>
