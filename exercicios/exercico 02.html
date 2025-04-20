@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Idade</title>
+    <style>
+        body {
+            background-color: #3e3c4d;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            padding-top: 30px;
+        }
+
+        section {
+            background: white;
+            color: black;
+            width: 300px;
+            padding: 20px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #00000088;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-style: italic;
+            color: white;
+        }
+
+        img#foto {+
+            margin-top: 10px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Verificador de Idade</h1>
+    </header>
+
+    <section>
+        <div>
+            <label for="txtano">Ano de Nascimento:</label>
+            <input type="number" name="txtano" id="txtano">
+        </div>
+        <div style="margin-top: 10px;">
+            Sexo:
+            <input type="radio" name="sexo" id="masc" checked>
+            <label for="masc">Masculino</label>
+            <input type="radio" name="sexo" id="fem">
+            <label for="fem">Feminino</label>
+        </div>
+        <div style="margin-top: 10px;">
+            <input type="button" value="Verificar" onclick="verificar()">
+        </div>
+        <div id="res" style="margin-top: 15px;">
+            Preencha os dados acima para ver o resultado!
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy;Cursoemvideo</p>
+    </footer>
+
+    <script>
+        function verificar() {
+            var ano = document.getElementById('txtano').value
+            var res = document.getElementById('res')
+            var data = new Date()
+            var anoAtual = data.getFullYear()
+
+            if (ano.length == 0 || Number(ano) > anoAtual) {
+                alert('[ERRO] Verifique os dados e tente novamente!')
+                return
+            }
+
+            var fsex = document.getElementsByName('sexo')
+            var idade = anoAtual - Number(ano)
+            var genero = ''
+            var img = document.createElement('img')
+            img.setAttribute('id', 'foto')
+
+            if (fsex[0].checked) {
+                genero = 'Homem'
+                if (idade <= 2) {
+                    img.setAttribute('src', 'imagens/bebe.jpeg')
+                } else if (idade <= 9) {
+                    img.setAttribute('src', 'imagens/criancamenino.jpeg')
+                } else if (idade <= 17) {
+                    img.setAttribute('src', 'imagens/menino.jpeg')
+                } else if (idade < 60) {
+                    img.setAttribute('src', 'imagens/homem.jpeg')
+                } else {
+                    img.setAttribute('src', 'imagens/idoso.jpeg')
+                }
+            } else {
+                genero = 'Mulher'
+                if (idade <= 2) {
+                    img.setAttribute('src', 'imagens/bebe.jpeg')
+                } else if (idade <= 9) {
+                    img.setAttribute('src', 'imagens/criancamenina.jpeg')
+                } else if (idade <= 17) {
+                    img.setAttribute('src', 'imagens/menina.jpeg')
+                } else if (idade < 60) {
+                    img.setAttribute('src', 'imagens/mulher.jpeg')
+                } else {
+                    img.setAttribute('src', 'imagens/idosa.jpeg')
+                }
+            }
+
+            res.innerHTML = `Detectamos ${genero} com ${idade} anos.`
+            res.appendChild(img)
+        }
+    </script>
+</body>
+</html>
