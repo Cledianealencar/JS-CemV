@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 01</title>
+
+    <style>
+        body{
+            font: normal 15pt arial;
+        }
+        header{
+            color: white;
+            text-align: center;
+        }
+        section{
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.347);
+        }
+        footer{
+            color: white;
+            text-align: center;
+            font-style: italic;
+        }
+
+        h1{
+            color: black;
+        }
+
+        img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+        }
+
+        div{
+            text-align: center;
+            padding: 8px;
+        }
+    </style>
+
+
+
+</head>
+<body onload="carregar()">
+    <header>
+        <h1>Hora do dia</h1>
+    </header>
+    <section>
+        <div id="msg">
+            a mensagem aparece aqui
+        </div>
+        <div id="foto">
+            <img id="image"  src="./fotomanha.jpeg" alt="foto da sol de manha ">
+        </div>
+    </section>
+    <footer>
+        <p>&copy; Cursoemvideo</p>
+    </footer>
+
+
+
+    <script>
+        function carregar(){
+            var titulo = document.querySelector('header h1')
+            var rodape = document.querySelector('footer')
+
+            var mensagem = document.querySelector('div#msg')
+            var imagem = document.querySelector('img#image')
+            var data = new Date()
+            var hora = data.getHours()
+            mensagem.innerHTML = `agora sao ${hora} Hrs`
+
+            if (hora >= 0 && hora < 12) {
+                //bom dia
+                imagem.src = 'fotomanha.jpeg'
+                document.body.style.background = 'yellow'
+                titulo.style.color = 'black'
+                rodape.style.color = 'black'
+            } else if (hora >= 12 && hora < 18) {
+                //boatarde
+                imagem.src = 'fototarde.jpeg'
+                document.body.style.background = 'green' 
+                titulo.style.color = 'black'
+                rodape.style.color = 'black'               
+            } else {
+                imagem.src = 'fotonoite.jpeg'
+                document.body.style.background = 'black'
+                titulo.style.color = 'white'
+                rodape.style.color = 'white'
+
+            }
+ 
+        }
+    </script>
+</body>
+</html>
